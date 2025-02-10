@@ -1,0 +1,40 @@
+
+
+{
+  "name": "automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run",
+    "headTest": "npm run test --headed",
+    "chromeTest": "npm run test --browser chrome",
+    "recordDashBoardTest": "npx cypress run --record --key 79694452-a67b-4573-9699-339617205423",
+    "GreenKartTest": "npx cypress run --spec \"cypress/integration/GreenKart/*\"",
+    "SmokeTest" : "npx cypress run --spec \"cypress/integration/GreenKart/Test1.js\""
+  },
+  "cypress-cucumber-preprocessor": {
+    "json": {
+      "enabled": true,
+      "output": "cypress/cucumberReports/results.json"
+    }
+  },
+  "author": "RahulShetty",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.15.1",
+    "cypress-sql-server": "^1.0.0",
+    "mocha": "^10.1.0",
+    "cypress-mochawesome-reporter" :"^3.8.2",
+    "multiple-cucumber-html-reporter": "^3.0.1",
+    "neat-csv": "5.1.0"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^21.0.2",
+    "@cypress/browserify-preprocessor": "latest",
+    "convert-excel-to-json": "^1.7.0",
+    "cypress-iframe": "^1.0.1",
+    "exceljs": "^4.4.0"
+  }
+}
+
