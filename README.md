@@ -2,7 +2,7 @@
 
 This project is designed to automate testing for tutorials using Cypress. It includes various test scripts and configurations to run tests in different environments and browsers. The project also integrates with multiple reporting tools to generate detailed test reports.
 
-**Note:** Over time, the elements of the testing or practice website—such as buttons, text content, features, domain, or other attributes—may change. As a result, test assertions may fail during execution. If you encounter such issues, please verify and update the locators of the relevant attributes (e.g., buttons, text elements, domain URLs, files, icons, etc.) to reflect the current structure of the website. This will help ensure the stability and accuracy of your test automation.
+* **Note:** Over time, the elements of the testing or practice website—such as buttons, text content, features, domain, or other attributes—may change. As a result, test assertions may fail during execution. If you encounter such issues, please verify and update the locators of the relevant attributes (e.g., buttons, text elements, domain URLs, files, icons, etc.) to reflect the current structure of the website. This will help ensure the stability and accuracy of your test automation.*
 
 ## Prerequisites
 
