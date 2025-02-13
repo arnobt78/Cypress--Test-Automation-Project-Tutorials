@@ -1,4 +1,7 @@
+
 ## Cypress Test Automation Project Tutorials
+
+<img width="1265" alt="Screenshot 2025-02-11 at 02 48 38" src="https://github.com/user-attachments/assets/22e7e0fc-fa11-4c49-bdab-b645b442404b" />
 
 This project is designed to automate testing for tutorials using Cypress. It includes various test scripts and configurations to run tests in different environments and browsers. The project also integrates with multiple reporting tools to generate detailed test reports.
 
