@@ -1,286 +1,265 @@
-
-## Cypress Test Automation Project Tutorials
+# Cypress Test Automation Project Tutorials
 
 <img width="1265" alt="Screenshot 2025-02-11 at 02 48 38" src="https://github.com/user-attachments/assets/22e7e0fc-fa11-4c49-bdab-b645b442404b" />
 
-This project is designed to automate testing for tutorials using Cypress. It includes various test scripts and configurations to run tests in different environments and browsers. The project also integrates with multiple reporting tools to generate detailed test reports.
+## Project Overview
 
-***Note:** Over time, the elements of the testing or practice website—such as buttons, text content, features, domain, or other attributes—may change. As a result, test assertions may fail during execution. If you encounter such issues, please verify and update the locators of the relevant attributes (e.g., buttons, text elements, domain URLs, files, icons, etc.) to reflect the current structure of the website. This will help ensure the stability and accuracy of your test automation.*
+This repository provides a comprehensive set of Cypress-based test automation tutorials, demonstrating best practices for automating UI testing of web applications. The project includes various scripts, configurations, and reporting tools that allow you to run, manage, and analyze end-to-end and component tests using Cypress.
 
-## Prerequisites
+> **Note:** The underlying practice website may change its UI or features over time. If you encounter assertion failures, revalidate selectors or assertions against the live site.
 
-Before you begin, ensure you have met the following requirements:
+---
 
-- Node.js (version 18.x.x or later)
-- npm (version 6.x.x or later)
-- nvm (Node Version Manager) for managing Node.js versions
+## Table of Contents
 
-## Project Setup
+- [Project Features](#project-features)
+- [Technology Stack](#technology-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [How to Run Tests](#how-to-run-tests)
+- [Reporting](#reporting)
+- [Configuration Highlights](#configuration-highlights)
+- [Troubleshooting](#troubleshooting)
+- [Keywords](#keywords)
+- [Contributing](#contributing)
+- [License](#license)
 
-1. **Clone the Repository**
+---
 
-   Clone the project repository to your local machine:
+## Project Features
 
-```sh
-   git clone <repository-url>
-   cd CypressAutomation
-```
+- **End-to-End UI Automation**: Test user journeys and workflows in a real browser.
+- **Reusable Test Data**: Uses fixtures for consistent and reusable test data.
+- **Modular Test Organization**: Example tests and domain-specific suites (e.g., GreenKart).
+- **Custom Commands & Plugins**: Extend Cypress with custom logic and Node.js plugins.
+- **Multi-Browser Support**: Run tests in Chrome and Electron.
+- **Headless & Headed Modes**: Flexible execution with headless or interactive browsers.
+- **CI/CD Ready**: Scripts for dashboard recording and CI integration.
+- **Rich Reporting**: Mocha and Cucumber HTML reports for test visibility.
 
-2. **Install Node.js**
+---
 
-   Use nvm to install the required Node.js version:
+## Technology Stack
 
-```sh
-   nvm install 18
-   nvm use 18
-```
+- **Cypress**: Main framework for automation testing.
+- **Node.js**: v18.x.x or later (tested with Node 18).
+- **npm**: For package management and scripts.
+- **nvm**: Node Version Manager for managing Node versions.
+- **Cucumber**: Gherkin-based BDD testing (via cypress-cucumber-preprocessor).
+- **Mochawesome**: For enhanced Mocha test reporting.
+- **Multiple-Cucumber-HTML-Reporter**: For generating beautiful Cucumber reports.
+- **Other Utilities**: `cypress-iframe`, `convert-excel-to-json`, `exceljs`, etc.
 
-3. **Install Dependencies**
-
-   Install the project dependencies using npm:
-
-```sh
-   npm install
-```
+---
 
 ## Project Structure
-
-The project structure is as follows:
 
 ```
 CypressAutomation
 ├── cypress
-│   ├── fixtures
+│   ├── fixtures         # Test data (JSON, CSV, etc.)
 │   ├── integration
-│   │   ├── examples
-│   │   └── GreenKart
-│   ├── plugins
-│   └── support
-├── cypress.config.js
-├── package.json
-└── README.md
+│   │   ├── examples     # General Cypress examples
+│   │   └── GreenKart    # Domain/application-specific tests
+│   ├── plugins          # Cypress plugins for Node.js tasks
+│   └── support          # Custom commands, support utilities
+├── cypress.config.js    # Cypress configuration
+├── package.json         # Project dependencies, scripts
+└── README.md            # Project documentation
 ```
 
-- fixtures: Contains test data files.
-- integration: Contains test scripts.
-  - `examples`: Contains example test scripts.
-  - `GreenKart`: Contains test scripts specific to the GreenKart application.
-- plugins: Contains Cypress plugins.
-- support: Contains support files and custom commands.
-- cypress.config.js: Cypress configuration file.
-- package.json: Project configuration and dependencies.
+---
 
-## Running Tests
+## Getting Started
 
-### Run All Tests on Cypress Browser
+### Prerequisites
 
-To see all tests on cypress browser, use the following command:
+- Node.js (18.x.x or later)
+- npm (6.x.x or later)
+- nvm (Node Version Manager)
 
+### Setup Instructions
+
+1. **Clone the Repository**
+    ```sh
+    git clone <repository-url>
+    cd Cypress--Test-Automation-Project-Tutorials
+    ```
+
+2. **Install Node.js**
+    ```sh
+    nvm install 18
+    nvm use 18
+    ```
+
+3. **Install Dependencies**
+    ```sh
+    npm install
+    ```
+
+---
+
+## How to Run Tests
+
+### Open Cypress Test Runner (GUI)
 ```sh
 npx cypress open
 ```
 
 ### Run All Tests (Headless)
-
-To run all tests, use the following command:
-
 ```sh
 npm run test
 ```
 
 ### Run Tests in Headed Mode
-
-To run tests in headed mode, use the following command:
-
 ```sh
 npm run headTest
 ```
 
 ### Run Tests in Chrome Browser
-
-To run tests in Chrome browser, use the following command:
-
 ```sh
 npm run chromeTest
 ```
 
-### Run Tests with Dashboard Recording
-
-To run tests with dashboard recording, use the following command:
-
+### Run with Dashboard Recording
 ```sh
 npm run recordDashBoardTest
 ```
 
-### Run Specific Tests
-
-To run specific tests, use the following command:
-
+### Run Specific Tests (e.g., Smoke Test)
 ```sh
 npm run SmokeTest
 ```
 
 ### Run All GreenKart Tests
-
-To run all tests in the GreenKart folder, use the following command:
-
 ```sh
 npm run GreenKartTest
 ```
 
+---
+
 ## Reporting
 
-The project integrates with multiple reporting tools to generate detailed test reports.
+- **Mocha Reporter**: Uses `cypress-mochawesome-reporter` to generate detailed Mocha reports in the `reports` directory.
+- **Cucumber HTML Reporter**: Generates Gherkin-based HTML reports with `multiple-cucumber-html-reporter` in `cypress/cucumberReports`.
 
-### Mocha Reporter
+---
 
-The project uses `cypress-mochawesome-reporter` to generate Mocha reports. The reports are generated in the reports directory.
+## Configuration Highlights
 
-### Cucumber HTML Reporter
+### Cypress Configuration (`cypress.config.js`)
+Customize as needed for base URL, environment variables, or plugins.
 
-The project uses `multiple-cucumber-html-reporter` to generate Cucumber HTML reports. The reports are generated in the `cypress/cucumberReports` directory.
+### `package.json`
 
-## Configuration
+**Scripts:**
+```json
+"scripts": {
+  "test": "npx cypress run",
+  "headTest": "npm run test --headed",
+  "chromeTest": "npm run test --browser chrome",
+  "recordDashBoardTest": "npx cypress run --record --key 79694452-a67b-4573-9699-339617205423",
+  "GreenKartTest": "npx cypress run --spec \"cypress/integration/GreenKart/*\"",
+  "SmokeTest": "npx cypress run --spec \"cypress/integration/GreenKart/Test1.js\""
+}
+```
 
-### Cypress Configuration
+**Dependencies:**
+```json
+"dependencies": {
+  "@badeball/cypress-cucumber-preprocessor": "^21.0.2",
+  "@cypress/browserify-preprocessor": "latest",
+  "convert-excel-to-json": "^1.7.0",
+  "cypress-iframe": "^1.0.1",
+  "exceljs": "^4.4.0"
+}
+```
 
-The Cypress configuration is defined in the cypress.config.js file. You can customize the configuration as per your requirements.
+**DevDependencies:**
+```json
+"devDependencies": {
+  "cypress": "^13.15.1",
+  "cypress-sql-server": "^1.0.0",
+  "mocha": "^10.1.0",
+  "cypress-mochawesome-reporter": "^3.8.2",
+  "multiple-cucumber-html-reporter": "^3.0.1",
+  "neat-csv": "5.1.0"
+}
+```
 
-### Package.json
-
-The package.json file contains the project configuration and dependencies. Here are some important sections:
-
-- **Scripts**: Defines various npm scripts to run tests and generate reports.
-
-  ```json
-  "scripts": {
-    "test": "npx cypress run",
-    "headTest": "npm run test --headed",
-    "chromeTest": "npm run test --browser chrome",
-    "recordDashBoardTest": "npx cypress run --record --key 79694452-a67b-4573-9699-339617205423",
-    "GreenKartTest": "npx cypress run --spec \"cypress/integration/GreenKart/*\"",
-    "SmokeTest" : "npx cypress run --spec \"cypress/integration/GreenKart/Test1.js\""
+**Cucumber Preprocessor Configuration:**
+```json
+"cypress-cucumber-preprocessor": {
+  "json": {
+    "enabled": true,
+    "output": "cypress/cucumberReports/results.json"
   }
-  ```
+}
+```
 
-- **Dependencies**: Lists the project dependencies.
-
-  ```json
-  "dependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^21.0.2",
-    "@cypress/browserify-preprocessor": "latest",
-    "convert-excel-to-json": "^1.7.0",
-    "cypress-iframe": "^1.0.1",
-    "exceljs": "^4.4.0"
-  }
-  ```
-
-- **DevDependencies**: Lists the development dependencies.
-
-  ```json
-  "devDependencies": {
-    "cypress": "^13.15.1",
-    "cypress-sql-server": "^1.0.0",
-    "mocha": "^10.1.0",
-    "cypress-mochawesome-reporter" :"^3.8.2",
-    "multiple-cucumber-html-reporter": "^3.0.1",
-    "neat-csv": "5.1.0"
-  }
-  ```
-
-- **Cypress Cucumber Preprocessor Configuration**: Configuration for the Cypress Cucumber preprocessor.
-  ```json
-  "cypress-cucumber-preprocessor": {
-    "json": {
-      "enabled": true,
-      "output": "cypress/cucumberReports/results.json"
-    }
-  }
-  ```
+---
 
 ## Troubleshooting
 
-### Common Issues
+### Common Issues & Solutions
 
 1. **Missing Dependencies**
-
-   If you encounter missing dependencies, run the following command to install them:
-
-   ```sh
-   npm install
-   ```
+    - Run: `npm install`
 
 2. **Incorrect Node.js Version**
-
-   Ensure you are using the correct Node.js version. Use nvm to switch to the required version:
-
-   ```sh
-   nvm use 18
-   ```
+    - Run: `nvm use 18`
 
 3. **Syntax Errors**
-
-   Check for syntax errors in your test scripts and configuration files.
+    - Check your test scripts and config files for typos.
 
 4. **File Not Found Errors**
+    - Double-check file paths in your configuration and imports.
 
-   Ensure that all file paths in your configuration and import statements are correct.
+5. **"fs" JavaScript File Error on Mac**
+    - Only use Node's `fs` module inside Cypress plugins or support files, not in browser test files.
+    - Use `cy.task()` in your tests to interact with files via Node context.
 
-5. **fs Javascript File Error on Mac**
-
-If you're encountering an "fs" module error while running Cypress automation on a Mac, it's likely due to one of the following issues:
-
-Possible Errors:
-
-"Cannot find module 'fs'"
-
-This happens if you try to import fs in a browser context (Cypress runs tests in the browser, and fs is a Node.js module).
-
-"fs.readFileSync is not a function"
-
-This can occur if fs is not correctly imported or used in the wrong scope.
-
-"Error: ENOENT: no such file or directory, open..."
-
-Indicates Cypress cannot find the file you are trying to read/write.
-
-**Solutions:**
-
-1. Use fs in Cypress plugins or support files (NOT in test files)
-
-Cypress runs test files in a browser-like environment, so you can only use fs in Node.js files like cypress/support/index.js or cypress/plugins/index.js.
-
-Example:
-
+**Example: Use `fs` in plugins**
 ```js
-const fs = require("fs");
-
+const fs = require('fs');
 module.exports = (on, config) => {
-  on("task", {
+  on('task', {
     readFile(filePath) {
-      return fs.readFileSync(filePath, "utf8");
+      return fs.readFileSync(filePath, 'utf8');
     },
   });
 };
 ```
 
-2. Use cy.task() in test files
-
-If you need to read/write a file inside a test, delegate it to a Node.js task.
-
+**Example: Use `cy.task()` in tests**
 ```js
-it("Reads a file using cy.task()", () => {
-  cy.task("readFile", "cypress/fixtures/sample.json").then((content) => {
+it('Reads a file using cy.task()', () => {
+  cy.task('readFile', 'cypress/fixtures/sample.json').then((content) => {
     cy.log(content);
   });
 });
 ```
 
-3. Ensure the file path is correct
+---
 
-If you're getting an ENOENT error, double-check the file path:
+## Keywords
 
-```js
-const filePath = path.join(__dirname, "cypress/fixtures/sample.json");
-console.log("File path:", filePath);
-```
+- Cypress, Automation, E2E Testing, UI Testing, JavaScript, Mocha, Cucumber, Gherkin, Node.js, Continuous Integration, Test Reporting, Plugins, Custom Commands, GreenKart, Fixtures, Test Data, Dashboard, Headless Browser
+
+---
+
+## Contributing
+
+Contributions are welcome! Please fork the repo, make your changes, and submit a pull request.
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+<!--
+All screenshot images from the original README are retained.
+-->
